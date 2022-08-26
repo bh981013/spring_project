@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>login-success</title>
+</head>
+<body>
+<h1>로그인 성공!</h1>
+<button th:onclick="|location.href='@{/home/{id}(id=${member.memberId})}'|">홈으로</button>
+<h2 th:text="|사용자 아이디: ${member.memberName}|">member name</h2>
+<h2 th:text="|사용자 비밀번호: ${member.password}|">member password</h2>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>search-member_result</title>
+</head>
+<body>
+    <h1 th:text="|검색결과: ${searchMember.memberName}|">
+        검색결과가 존재하지 않습니다.
+    </h1>
+    <button onclick="|location.href='@{search/{memberId}(memberId=${searchMember.memberId})}'|">글 목록</button>
+</body>
+</html>

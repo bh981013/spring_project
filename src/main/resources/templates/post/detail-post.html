@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail-post</title>
+</head>
+<body>
+<div>
+    제목: <span th:text="${post.postTitle}"></span>
+</div>
+<div>
+    날짜: <span th:text="${post.postDate}"></span>
+</div>
+<div>
+    내용: <span th:text="${post.postBody}"></span>
+</div>
+<button th:onclick="|location.href='@{/posts/{memberId}(memberId=${memberId}) }'|">글 목록으로</button>
+<form th:action="@{/posts/delete/{memberId}/{postId}(memberId=${memberId}, postId=${post.postId})}" method="post">
+    <button type="submit">삭제</button>
+</form>
+<form th:action="@{/posts/modify/{memberId}/{postId}(memberId=${memberId}, postId=${post.postId})}" method="get">
+    <button type="submit">수정</button>
+</form>
+</body>
+</html>

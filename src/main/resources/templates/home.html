@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<button th:onclick="|location.href='@{/posts/{memberId}(memberId=${memberId}) }'|">글 목록</button>
+<button th:onclick="|location.href='@{/posts/add/{memberId}(memberId=${memberId})}'|">글 등록</button>
+<button th:onclick="|location.href='@{/search/member/{memberId}(memberId=${memberId})}'|">사람 검색</button>
+<button th:onclick="|location.href='@{/search/post/{memberId}(memberId=${memberId})}'|">게시글 검색</button>
+</body>
+</html>

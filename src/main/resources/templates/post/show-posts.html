@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>show-posts</title>
+    <style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    border-left: 1px solid #444444;
+    padding: 10px;
+  }
+  th:first-child, td:first-child {
+    border-left: none;
+  }
+
+
+
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>순서</th>
+        <th>제목</th>
+        <th>내용</th>
+        <th>날짜</th>
+        <th>삭제</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post, stat: ${posts}">
+        <td>
+            <a th:href="|@{/posts/detail/{memberId}/{postId}(postId=${post.postId},memberId=${memberId})}|"
+               th:text="${stat.count}"></a>
+        </td>
+        <td>
+            <a th:href="|@{/posts/detail/{memberId}/{postId}(postId=${post.postId},memberId=${memberId})}|"
+               th:text="${post.postTitle}"></a>
+        </td>
+        <td>
+            <a th:href="|@{/posts/detail/{memberId}/{postId}(postId=${post.postId},memberId=${memberId})}|"
+               th:text="${post.postBody}"></a>
+        </td>
+        <td th:text="${post.postDate}">
+        </td>
+        <td>
+            <form th:action="@{/posts/delete/{memberId}/{postId}(memberId=${memberId}, postId=${post.postId})}" method="post">
+                <button type="submit">삭제</button>
+            </form>
+            <form th:action="@{/posts/modify/{memberId}/{postId}(memberId=${memberId}, postId=${post.postId})}" method="get">
+                <button type="submit">수정</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button th:onclick="|location.href='@{/home/{memberId}(memberId=${memberId})}'|">홈으로</button>
+<button th:onclick="|location.href='@{/posts/add/{memberId}(memberId=${memberId})}'|">글 등록</button>
+</body>
+</html>

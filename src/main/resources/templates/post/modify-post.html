@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>modify-post</title>
+</head>
+<body>
+<form action="" method="post">
+    <div>
+        글 제목<input type="text" name="postTitle" th:value="${post.postTitle}" required>
+    </div>
+    <div>
+        글 내용<textarea type="text" name="postBody" th:text="${post.postBody}" required></textarea>
+    </div>
+    <button type="submit">글 등록</button>
+</form>
+</body>
+</html>
